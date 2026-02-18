@@ -2,6 +2,7 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { leadService } from '$lib/server/services/lead.service';
 import { createLeadSchema, leadFilterSchema } from '$lib/schemas/lead.schema';
+import { requireApiKey } from '$lib/server/auth';
 
 // GET /api/leads — List leads with filters
 export const GET: RequestHandler = async ({ url }) => {
@@ -16,8 +17,10 @@ export const GET: RequestHandler = async ({ url }) => {
 	return json(result);
 };
 
-// POST /api/leads — Create a new lead
+// POST /api/leads — Create a new lead (requires API key)
 export const POST: RequestHandler = async ({ request }) => {
+	requireApiKey(request);
+
 	const body = await request.json();
 	const parsed = createLeadSchema.safeParse(body);
 
