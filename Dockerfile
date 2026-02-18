@@ -7,6 +7,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
+RUN npx drizzle-kit generate || true
 RUN npm run build
 RUN npm prune --production
 
