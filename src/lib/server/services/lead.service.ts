@@ -13,6 +13,22 @@ export const leadService = {
 	},
 
 	async createLead(data: NewLead) {
+		// Check for existing lead with same name and city (simple dedupe)
+		const existing = await leadRepository.findAll({
+			search: data.businessName,
+			limit: 10
+		});
+
+		const isDuplicate = existing.items.some(
+			(l) =>
+				l.businessName.toLowerCase() === data.businessName.toLowerCase() &&
+				(l.city?.toLowerCase() === data.city?.toLowerCase() || l.websiteUrl === data.websiteUrl)
+		);
+
+		if (isDuplicate) {
+			throw new Error(`Lead with name "${data.businessName}" already exists in ${data.city}`);
+		}
+
 		const lead = await leadRepository.create(data);
 
 		// Auto-add creation activity

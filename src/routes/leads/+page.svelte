@@ -59,8 +59,11 @@
 					id="search"
 					type="text"
 					bind:value={search}
+					oninput={() => {
+						// Subtle loading indication or immediate filter could be here
+					}}
 					placeholder="Name, E-Mail, Stadt..."
-					class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
+					class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm transition-all focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
 				/>
 			</div>
 			<div>
@@ -68,6 +71,7 @@
 				<select
 					id="status"
 					bind:value={statusFilter}
+					onchange={applyFilters}
 					class="rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
 				>
 					<option value="">Alle</option>
@@ -84,19 +88,20 @@
 				<select
 					id="source"
 					bind:value={sourceFilter}
+					onchange={applyFilters}
 					class="rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
 				>
 					<option value="">Alle</option>
 					<option value="manual">Manuell</option>
 					<option value="scraped">Scraped</option>
 					<option value="referral">Empfehlung</option>
-					<option value="google_places">Google Places</option>
+					<option value="bigl_bot">Bigl Bot</option>
 					<option value="directory">Verzeichnis</option>
 				</select>
 			</div>
 			<button
 				type="submit"
-				class="rounded-lg bg-gray-800 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700"
+				class="rounded-lg bg-gray-800 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-gray-700 active:scale-95"
 			>
 				Filtern
 			</button>
