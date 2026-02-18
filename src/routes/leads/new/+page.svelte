@@ -185,7 +185,7 @@
 					<option value="manual">Manuell</option>
 					<option value="scraped">Scraped</option>
 					<option value="referral">Empfehlung</option>
-					<option value="google_places">Google Places</option>
+					<option value="bigl_bot">Bigl Bot Discovery</option>
 					<option value="directory">Verzeichnis</option>
 				</select>
 			</div>

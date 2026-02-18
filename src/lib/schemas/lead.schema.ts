@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const leadStatusValues = ['new', 'contacted', 'qualified', 'proposal', 'won', 'lost'] as const;
-export const leadSourceValues = ['scraped', 'manual', 'referral', 'google_places', 'directory'] as const;
+export const leadSourceValues = ['bigl_bot', 'manual', 'referral', 'scraped', 'directory'] as const;
 export const activityTypeValues = ['note', 'email', 'call', 'meeting', 'proposal_sent', 'status_change'] as const;
 
 export const createLeadSchema = z.object({
