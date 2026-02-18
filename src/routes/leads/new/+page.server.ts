@@ -1,6 +1,6 @@
 import type { Actions, PageServerLoad } from './$types';
 import { superValidate, message } from 'sveltekit-superforms';
-import { zod } from 'sveltekit-superforms/adapters';
+import { zod4 as zod } from 'sveltekit-superforms/adapters';
 import { createLeadSchema } from '$lib/schemas/lead.schema';
 import { leadService } from '$lib/server/services/lead.service';
 import { redirect, fail } from '@sveltejs/kit';

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms';
-	import { zodClient } from 'sveltekit-superforms/adapters';
+	import { zod4Client as zodClient } from 'sveltekit-superforms/adapters';
 	import { updateLeadSchema, createActivitySchema } from '$lib/schemas/lead.schema';
 	import StatusBadge from '$lib/components/StatusBadge.svelte';
 

@@ -1,7 +1,7 @@
 import type { Actions, PageServerLoad } from './$types';
 import { leadService } from '$lib/server/services/lead.service';
 import { superValidate, message } from 'sveltekit-superforms';
-import { zod } from 'sveltekit-superforms/adapters';
+import { zod4 as zod } from 'sveltekit-superforms/adapters';
 import { updateLeadSchema, createActivitySchema } from '$lib/schemas/lead.schema';
 import { error, fail, redirect } from '@sveltejs/kit';
 
